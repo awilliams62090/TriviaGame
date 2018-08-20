@@ -18,20 +18,7 @@ $(document).ready(function () {
         answer: "4",
     }]
 
-    // initialize function to ready the game for play, set counters to 0 and display the start button
-    // on click of start the first timer will begin, each question has 20 seconds to answer
-    // the question and choices from the object will be displayed
-    // we will check the answer to the playerGuess in our if statements, but it will not be displayed
-    // the choice selected by the player will be the playerGuess 
-    // if playerGuess === answer a new timer is started where their rightAnswer goes up by 1 and a congrats message is displayed
-    // if playerGuess !== answer a new timer is started where the wrongAnswer goes up by 1 and a loser message displayed
-    // if timer runs out before a choice has been made- timer starts, unanswered goes up by 1 and a timeout message displayed
-    // after one of the if statement timer is complete, the next question is displayed and the 20 seconds/choices begins again
-    // the "ifs" will be used for all 8 questions 
-    // after the loop is complete the page will display the risghtAnswer, wrongAnswer and unanwered counts for the player as well 
-    // as have the option to play again by clicking the "Play Again" button 
-    // reset function to start the game over without reloading page by clicking on the "Play Again" button
-
+    //Timer functions to create a timer that counts down by one second for the duration of the game
     function startTimer() {
         counter = 20;
         clearInterval(timer);
@@ -50,9 +37,10 @@ $(document).ready(function () {
     function stopTimer() {
         clearInterval(timer);
         submit();
+        $("#submitGame").hide();
     }
 
-
+    //Adding questions/answers to the page from my trivaItem variable
     function addQuestions() {
         for (var i = 0; i < triviaItem.length; i++) {
             var question = $("<p>").text(triviaItem[i].question);
@@ -64,6 +52,7 @@ $(document).ready(function () {
         }
 
     }
+    //When the user hits the submit button, OR if the timer runs out, we will need to check to see if the player guessed the right answer. If they did, it will up their wins counter, or if they didn't it will up their losses counter. We will also want to append the counters to the page and give them an option to play again.
 
     function submit() {
         for (var i = 0; i < triviaItem.length; i++) {
@@ -82,23 +71,30 @@ $(document).ready(function () {
         $("#playAgain").show();
     }
 
+
     function startGame() {
         rightAnswer = 0;
         wrongAnswer = 0;
         startTimer();
+        $("#gameQuestion").text("");
         addQuestions();
         $("#playAgain").hide();
+        $("#submitGame").show();
     }
 
+    // Runnig the game- when the player hits start, the game clock begins. We will then hide the start button 
     $("#start").click(function () {
         startGame();
         $("#start").hide();
     });
 
+    //If the player finishes answering before the timer is done, they will hit submit and the timer will stop
     $('#submitGame').click(function () {
         stopTimer();
+        $("#submitGame").hide();
     });
 
+    //The player can paly again without having to reload the page by clicking the play again button
     $("#playAgain").click(function () {
         startGame();
     })
