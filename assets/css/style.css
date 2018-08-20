@@ -17,6 +17,12 @@ h1 {
     font-family: 'Faster One', cursive;
 }
 
+#counter {
+    font-size: 50px;
+    font-family: 'Faster One', cursive;
+    color: #a00c0c;
+}
+
 h2 {
     font-size: 20px;
 }
@@ -26,6 +32,20 @@ h2 {
     text-align: center;
 }
 
-#playAgain {
+.col{
+    background-color: rgb(20, 11, 54);
+    margin: 10px 80px;
+    color: white;
+    display: none;
+}
+
+p {
+    margin-bottom: 0px;
+}
+#submitGame{
+    display: none;
+}
+
+#playAgain{
     display: none;
 }
