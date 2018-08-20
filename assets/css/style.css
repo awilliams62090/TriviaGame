@@ -1,0 +1,31 @@
+body {
+    background-image: url(../images/icerink.jpg);
+    color: #1A2433;
+    font-family: 'Bungee Inline', cursive;
+}
+
+#titleBox {
+    text-align: center;
+    margin: 10px 100px;
+    padding: 10px;
+    background-color: rgb(20, 11, 54);
+    color: white;
+}
+
+h1 {
+    font-size: 80px;
+    font-family: 'Faster One', cursive;
+}
+
+h2 {
+    font-size: 20px;
+}
+
+.container {
+    padding: 20px;
+    text-align: center;
+}
+
+#playAgain {
+    display: none;
+}
